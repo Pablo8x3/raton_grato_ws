@@ -1,0 +1,29 @@
+[0.379s] Invoking command in '/home/pablo/Documents/ros_practica/raton_grato_ws/src/py_raton_gato': PYTHONPATH=/home/pablo/Documents/ros_practica/raton_grato_ws/build/py_raton_gato/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/py_raton_gato build --build-base /home/pablo/Documents/ros_practica/raton_grato_ws/build/py_raton_gato/build install --record /home/pablo/Documents/ros_practica/raton_grato_ws/build/py_raton_gato/install.log --single-version-externally-managed install_data
+[0.494s] running egg_info
+[0.494s] writing ../../build/py_raton_gato/py_raton_gato.egg-info/PKG-INFO
+[0.494s] writing dependency_links to ../../build/py_raton_gato/py_raton_gato.egg-info/dependency_links.txt
+[0.494s] writing entry points to ../../build/py_raton_gato/py_raton_gato.egg-info/entry_points.txt
+[0.494s] writing requirements to ../../build/py_raton_gato/py_raton_gato.egg-info/requires.txt
+[0.494s] writing top-level names to ../../build/py_raton_gato/py_raton_gato.egg-info/top_level.txt
+[0.495s] reading manifest file '../../build/py_raton_gato/py_raton_gato.egg-info/SOURCES.txt'
+[0.496s] adding license file 'LICENSE'
+[0.496s] writing manifest file '../../build/py_raton_gato/py_raton_gato.egg-info/SOURCES.txt'
+[0.496s] running build
+[0.496s] running build_py
+[0.496s] copying py_raton_gato/spawner.py -> /home/pablo/Documents/ros_practica/raton_grato_ws/build/py_raton_gato/build/lib/py_raton_gato
+[0.496s] running install
+[0.496s] running install_lib
+[0.497s] copying /home/pablo/Documents/ros_practica/raton_grato_ws/build/py_raton_gato/build/lib/py_raton_gato/spawner.py -> /home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/lib/python3.10/site-packages/py_raton_gato
+[0.497s] byte-compiling /home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/lib/python3.10/site-packages/py_raton_gato/spawner.py to spawner.cpython-310.pyc
+[0.497s] running install_data
+[0.497s] copying launch/juego.launch.py -> /home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/share/py_raton_gato/launch
+[0.497s] running install_egg_info
+[0.498s] removing '/home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/lib/python3.10/site-packages/py_raton_gato-0.0.0-py3.10.egg-info' (and everything under it)
+[0.499s] Copying ../../build/py_raton_gato/py_raton_gato.egg-info to /home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/lib/python3.10/site-packages/py_raton_gato-0.0.0-py3.10.egg-info
+[0.499s] running install_scripts
+[0.510s] Installing gato script to /home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/lib/py_raton_gato
+[0.511s] Installing juez script to /home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/lib/py_raton_gato
+[0.511s] Installing raton script to /home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/lib/py_raton_gato
+[0.511s] Installing spawner script to /home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/lib/py_raton_gato
+[0.511s] writing list of installed files to '/home/pablo/Documents/ros_practica/raton_grato_ws/build/py_raton_gato/install.log'
+[0.522s] Invoked command in '/home/pablo/Documents/ros_practica/raton_grato_ws/src/py_raton_gato' returned '0': PYTHONPATH=/home/pablo/Documents/ros_practica/raton_grato_ws/build/py_raton_gato/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pablo/Documents/ros_practica/raton_grato_ws/install/py_raton_gato/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/py_raton_gato build --build-base /home/pablo/Documents/ros_practica/raton_grato_ws/build/py_raton_gato/build install --record /home/pablo/Documents/ros_practica/raton_grato_ws/build/py_raton_gato/install.log --single-version-externally-managed install_data
