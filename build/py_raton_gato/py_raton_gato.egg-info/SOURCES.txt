@@ -9,6 +9,7 @@ setup.py
 ../../build/py_raton_gato/py_raton_gato.egg-info/requires.txt
 ../../build/py_raton_gato/py_raton_gato.egg-info/top_level.txt
 ../../build/py_raton_gato/py_raton_gato.egg-info/zip-safe
+config/juego.yaml
 launch/juego.launch.py
 py_raton_gato/__init__.py
 py_raton_gato/gato.py

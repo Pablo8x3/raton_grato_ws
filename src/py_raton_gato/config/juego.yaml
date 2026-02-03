@@ -1,13 +1,13 @@
 raton:
   ros__parameters:
-    timer_period: 2.0
-    jump_linear: 2.5
+    timer_period: 1.0
+    jump_linear: 2.0
     jump_angular: 1.5
 
 gato:
   ros__parameters:
-    max_linear_speed: 2.0
-    linear_gain: 0.05
+    max_linear_speed: 1.0
+    linear_gain: 1.0
     angular_gain: 4.0
     speed_increment: 0.01
 

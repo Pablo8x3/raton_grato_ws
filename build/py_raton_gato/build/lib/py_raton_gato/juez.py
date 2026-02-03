@@ -2,6 +2,8 @@ import rclpy
 from rclpy.node import Node
 from turtlesim.msg import Pose
 import math
+from std_msgs.msg import Bool
+
 
 
 class JuezNode(Node):
@@ -13,7 +15,9 @@ class JuezNode(Node):
         self.gato_pose = None
         self.game_over = False
 
-        self.capture_distance = 1.0
+        # Obtener parámetro del YAML
+        self.declare_parameter('capture_distance')
+        self.capture_distance = self.get_parameter('capture_distance').value
 
         self.create_subscription(
             Pose,
@@ -30,6 +34,13 @@ class JuezNode(Node):
         )
 
         self.timer = self.create_timer(0.1, self.check_capture)
+
+        self.game_over_pub = self.create_publisher(
+            Bool,
+            '/game_over',
+            10
+        )
+
 
     def raton_callback(self, msg):
         self.raton_pose = msg
@@ -50,6 +61,11 @@ class JuezNode(Node):
 
         if distancia < self.capture_distance:
             self.game_over = True
+
+            msg = Bool()
+            msg.data = True
+            self.game_over_pub.publish(msg)
+
             self.get_logger().info('🐱 El gato ha capturado al ratón. FIN DEL JUEGO')
 
 

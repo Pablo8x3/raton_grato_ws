@@ -4,6 +4,8 @@ from rclpy.node import Node
 from turtlesim.msg import Pose
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Empty
+from std_msgs.msg import Bool
+
 
 import math
 
@@ -13,11 +15,11 @@ class GatoNode(Node):
     def __init__(self):
         super().__init__('gato')
 
-        # Parámetros
-        self.declare_parameter('max_linear_speed', 2.0)
-        self.declare_parameter('linear_gain', 1.5)
-        self.declare_parameter('angular_gain', 4.0)
-        self.declare_parameter('speed_increment', 0.2)
+        # Parámetros - obtener del YAML sin valores por defecto
+        self.declare_parameter('max_linear_speed')
+        self.declare_parameter('linear_gain')
+        self.declare_parameter('angular_gain')
+        self.declare_parameter('speed_increment')
 
         self.max_linear_speed = self.get_parameter('max_linear_speed').value
         self.linear_gain = self.get_parameter('linear_gain').value
@@ -27,6 +29,7 @@ class GatoNode(Node):
         # Estado
         self.gato_pose = None
         self.raton_pose = None
+        self.game_over = False
 
         # Subscriptores
         self.create_subscription(
@@ -35,6 +38,14 @@ class GatoNode(Node):
             self.gato_callback,
             10
         )
+
+        self.create_subscription(
+            Bool,
+            '/game_over',
+            self.game_over_callback,
+            10
+        )
+
 
         self.create_subscription(
             Pose,
@@ -73,6 +84,9 @@ class GatoNode(Node):
         )
 
     def control_loop(self):
+        if self.game_over:
+            return
+
         if self.gato_pose is None or self.raton_pose is None:
             return
 
@@ -94,6 +108,16 @@ class GatoNode(Node):
         cmd.angular.z = angular_z
 
         self.cmd_pub.publish(cmd)
+
+    def game_over_callback(self, msg):
+        if msg.data:
+            self.game_over = True
+
+            stop = Twist()
+            self.cmd_pub.publish(stop)
+
+            self.get_logger().info('🐱 Juego terminado, el gato se detiene')
+
 
 
 def main():

@@ -1,16 +1,21 @@
 import rclpy
 from rclpy.node import Node
 from turtlesim.srv import TeleportRelative
+from std_msgs.msg import Bool
+
 
 
 class RatonNode(Node):
 
     def __init__(self):
-        super().__init__('raton_node')  # Nombre del nodo
+        super().__init__('raton')  # Nombre del nodo
 
-        self.declare_parameter('timer_period', 2.0)
-        self.declare_parameter('jump_linear', 2.0)
-        self.declare_parameter('jump_angular', 1.0)
+        self.game_over = False
+
+        # Obtener parámetros del YAML sin valores por defecto
+        self.declare_parameter('timer_period')
+        self.declare_parameter('jump_linear')
+        self.declare_parameter('jump_angular')
 
         self.timer_period = self.get_parameter('timer_period').value
         self.jump_linear = self.get_parameter('jump_linear').value
@@ -26,8 +31,24 @@ class RatonNode(Node):
             self.timer_period,
             self.timer_callback
         )
+    
+
+        self.create_subscription(
+            Bool,
+            '/game_over',
+            self.game_over_callback,
+            10
+        )
+
+    def game_over_callback(self, msg):
+        if msg.data:
+            self.game_over = True
+            self.get_logger().info('🐭 Juego terminado, el ratón se detiene')
+
 
     def timer_callback(self):
+        if self.game_over:
+            return
         request = TeleportRelative.Request()
         request.linear = self.jump_linear
         request.angular = self.jump_angular
