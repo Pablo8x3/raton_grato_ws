@@ -1,5 +1,0 @@
-[console_scripts]
-gato = py_raton_gato.gato:main
-juez = py_raton_gato.juez:main
-raton = py_raton_gato.raton:main
-
