@@ -31,7 +31,7 @@ class GatoNode(Node):
         self.raton_pose = None
         self.game_over = False
 
-        # Subscriptores
+        # Suscriptores
         self.create_subscription(
             Pose,
             '/turtle2/pose',
